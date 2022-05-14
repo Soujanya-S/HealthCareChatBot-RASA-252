@@ -1,0 +1,169 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - Hi
+    - Hey
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: book_doctor_appointment
+  examples: |
+    - I would like to book an appointment with the doctor
+    - Can you book a doctor appointment for me?
+    - Book a doctor appointment
+    - Want to book a doctor's appointment
+    - Need an appointment with the doctor
+    - Schedule an appointment with doctor
+    - Requesting doctor appointment
+    - Doctor appointment needed
+    - Help me with booking doctor appointment
+    - Need help with doctor appointment
+    - Can I get a doctor appointment
+    - Appointment needed
+    - Setup a doctor appointment
+- intent: weather_check
+  examples: |
+    - what is the weather?
+    - what's the weather?
+    - how is today's weather forecast?
+    - how is today's weather?
+    - is it a good weather today?
+    - tell me today's weather?
+- intent: inform_city
+  examples: |
+    - San Jose
+    - San Francisco
+    - SanFrancisco
+    - New York
+    - Newyork
+    - NewYork
+    - SanJose
+    - Sanjose
+    - Santa Clara
+    - SantaBarbara
+    - Santa Barbara
+    - Santa Cruz
+    - santaclara
+    - San Diego
+    - Tahoe
+    - Seattle
+    - Austin
+- intent: ask_healthy_lifestyle
+  examples: |
+    - suggest some healthy lifestyle habits?
+    - what are some healthy lifestyles?
+    - how to maintain a healthy lifestyle?
+    - find some info on healthy lifestyle
+    - get me some healthy lifestyle tips
+    - provide healthy lifestyle tips
+- intent: ask_reduce_stress
+  examples: |
+    - How can we reduce stress?
+    - what are some ways to reduce stress?
+    - how to avoid stress?
+    - reduce stress
+    - tips to reduce stress
+    - how to be stress free?
+    - suggest some tips on reducing stress
+    - provide some inputs to reduce stress
+    - stress free 
+- intent: thank_bot
+  examples: |
+    - thanks for the information
+    - thanks,it was helpful
+    - thank you
+    - thank you for providing the details
+    - thanks for booking the appointment
+    - ty
+    - Ty
+    - tnks
+    - thnks
+    - Thank you
+    - Thanks
+- intent: ask_how_are_you
+  examples: |
+    - How are you?
+    - how are you doing?
+    - how r u?
+    - how are you?
+    - How are u doing?
+
+  

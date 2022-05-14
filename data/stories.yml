@@ -1,0 +1,115 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+  
+
+- story: Book appointment 
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_doctor_appointment
+  - action: Appointment_request_form 
+  - active_loop: Appointment_request_form
+  - slot_was_set:
+    - requested_slot: FirstName
+  - slot_was_set:
+    - FirstName: Soujanya
+  - slot_was_set:
+    - requested_slot: LastName
+  - slot_was_set:
+    - LastName: Sarvothama 
+  - slot_was_set:
+    - requested_slot: PhoneNumber
+  - slot_was_set:
+    - PhoneNumber: 12345698760
+  - slot_was_set:
+    - requested_slot: EMail
+  - slot_was_set:
+    - EMail: soujanya@gmail.com
+  - slot_was_set:
+    - requested_slot: Location
+  - slot_was_set:
+    - Location: San Jose
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_search_healthcenter
+  - action: Appointment_details_form
+  - active_loop: Appointment_details_form  
+  - slot_was_set:
+    - requested_slot: HealthCenter
+  - slot_was_set:
+    - HealthCenter: Kaiser
+  - slot_was_set:
+    - requested_slot: Age
+  - slot_was_set:
+    - Age: 22
+  - slot_was_set:
+    - requested_slot: Reason
+  - slot_was_set:
+    - Reason: Fever  
+  - slot_was_set:
+    - requested_slot: Date
+  - slot_was_set:
+    - Date: 3rd April
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_appointment_information
+  - action: action_submit
+  - action: utter_submit_confirmation
+  - intent: thank_bot
+  - action: utter_welcome
+
+
+- story: small talk
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_reduce_stress
+  - action: utter_suggest_stress_reduction
+  - intent: weather_check
+  - action: utter_city
+  - intent: inform_city
+  - action: action_weather_api
+  - intent: ask_healthy_lifestyle
+  - action: utter_suggest_healthylifestyle
+  - intent: thank_bot
+  - action: utter_welcome
+
+- story: ask healthy
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_healthy_lifestyle
+  - action: utter_suggest_healthylifestyle
+
+
