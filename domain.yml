@@ -1,0 +1,207 @@
+version: '3.1'
+intents:
+- affirm
+- ask_healthy_lifestyle
+- ask_how_are_you
+- book_doctor_appointment
+- bot_challenge
+- deny
+- goodbye
+- greet
+- inform_city
+- mood_great
+- mood_unhappy
+- thank_bot
+- weather_check
+- ask_reduce_stress
+forms:
+  Appointment_request_form:
+    required_slots:
+    - FirstName
+    - LastName
+    - PhoneNumber
+    - EMail
+    - Location
+  Appointment_details_form:
+    required_slots:
+    - Age
+    - HealthCenter
+    - Reason
+    - Date
+slots:
+  FirstName:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: Appointment_request_form
+        requested_slot: FirstName
+  LastName:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: Appointment_request_form
+        requested_slot: LastName
+  PhoneNumber:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: Appointment_request_form
+        requested_slot: PhoneNumber
+  EMail:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: Appointment_request_form
+        requested_slot: EMail
+  Location:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: Appointment_request_form
+        requested_slot: Location
+  HealthCenter:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: Appointment_details_form
+        requested_slot: HealthCenter
+  Age:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: Appointment_details_form
+        requested_slot: Age
+  Reason:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: Appointment_details_form
+        requested_slot: Reason
+  Date:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: Appointment_details_form
+        requested_slot: Date
+responses:
+  utter_greet:
+  - text: Hello !! I am your health assistant,How may I assist you?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_doing_good:
+  - text: I am doing good! Thanks for asking
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: It was nice having conversation with you.Good Bye!!
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_ask_FirstName:
+  - text: What is your First Name?
+  utter_ask_LastName:
+  - text: So {FirstName},What is your Last Name?
+  utter_ask_PhoneNumber:
+  - text: Please provide your phone number?
+  utter_ask_EMail:
+  - text: Please provide your email address?
+  utter_ask_Location:
+  - text: What is your location?
+  utter_ask_HealthCenter:
+  - text: Please select one of the health centers from the below list based on your preference
+  utter_ask_Age:
+  - text: Please provide your Age?
+  utter_ask_Reason:
+  - text: Please provide the reason for your appointment?
+  utter_ask_Date:
+  - text: Which date do you prefer for appointment?
+  utter_appointment_information:
+  - text: "These are the details provided by you : \n  
+           First Name: {FirstName} \n 
+           Last Name : {LastName} \n 
+           Phone Number: {PhoneNumber} \n 
+           EMail: {EMail} \n 
+           Age: {Age} \n 
+           Location:{Location} \n 
+           Reason for appointment: {Reason} \n 
+           Health Center:{HealthCenter} \n 
+           Date: {Date}  "
+  utter_submit_confirmation:
+  - text: Thanks for providing all the details! Your appointment is booked!
+  utter_city:
+  - text: Which city weather do you want to check?
+  utter_weather:
+  - text: Current temperature of the city you selected is {temp} degree celsius
+  utter_suggest_healthylifestyle:
+  - text: "Some suggestions for maintaining a healthy life style:\n
+           1. Eat a Balanced and Healthy diet \n
+           2. Drink Water and Stay hydrated and limit Sugared beverages \n
+           3. Excercise Regularly and be Physically Active \n
+           4. Reduce Sitting and Screen Time \n
+           5. Get Enough Good Sleep \n
+           \n
+           You can work towards healthy lifestyle with more info from : https://www.livestrong.com/ "
+  utter_suggest_stress_reduction:
+  - text: "Here are some tips for you to reduce stress :\n
+           1. Mindfulness Meditation \n
+           2. Laugh more \n
+           3. Get active \n
+           4. Deep breathing exercises \n
+           5. Try Yoga \n
+           6. Assert yourself \n
+           7. Connect with people \n
+           8. Get enough sleep \n
+           9. Keep a journal \n
+           10. Listen to Music \n
+             "
+  utter_welcome:
+  - text: You are welcome !! Glad I could help
+  utter_default:
+  - text: Sorry I didn't get that. Can you rephrase?
+
+
+
+
+actions:
+- action_search_healthcenter
+- action_submit
+- action_weather_api
+- utter_appointment_information
+- utter_cheer_up
+- utter_city
+- utter_did_that_help
+- utter_doing_good
+- utter_goodbye
+- utter_greet
+- utter_happy
+- utter_how_can_I_help
+- utter_iamabot
+- utter_submit_confirmation
+- utter_suggest_healthylifestyle
+- utter_suggest_stress_reduction
+- utter_weather
+- utter_welcome
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
